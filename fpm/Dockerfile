@@ -95,6 +95,8 @@ RUN set -ex; \
 # include the wait-for-it.sh script
 RUN curl -fL https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh > /wait-for-it.sh && chmod +x /wait-for-it.sh
 
+RUN pecl install redis && docker-php-ext-enable redis
+
 # use custom PHP settings
 COPY php.ini /usr/local/etc/php/conf.d/roundcube-defaults.ini
 
